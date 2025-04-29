@@ -20,8 +20,8 @@ Step 6 : After scanning, pop and output all remaining operators from the stack.
 ```
 /*
 Program to convert the infix expression into postfix expression
-Developed by: Amruthavarshini Gopal
-Register Number: 212223230013
+Developed by: S V SHADHANASHREE
+Register Number: 212223230202
 */
 #include<stdio.h>
 #include<ctype.h>
