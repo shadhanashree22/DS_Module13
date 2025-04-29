@@ -22,51 +22,46 @@ RegisterNumber:  212223230202
 */
 
 #include <stdio.h>
-#include<string.h>
-int main()
-{
-   int i,j;
-   char ch[100]="+7*45%20";
-   
-   //write your code here
-   int length=strlen(ch);
-   for(i=0;i<=length;i++)
-   {
-       if(ch[i]=='+'||ch[i]=='-'||ch[i]=='*'||ch[i]=='/'||ch[i]=='&'||ch[i]=='|'||ch[i]=='%'||ch[i]=='^')
-       {
-       j=priority(ch[i]);
-       switch(j)
-       {
-           case 1:
-           printf("%c  ----> Lowest Priority\n",ch[i]);
-           break;
-           case 2:
-           printf("%c  ----> Second Lowest Priority\n",ch[i]);
-           break;
-           case 3:
-           printf("%c  ----> Second Highest Priority\n",ch[i]);
-           break;
-           case 4:
-           printf("%c  ----> Highest Priority\n",ch[i]);
-           break;
-       }
-       }
-   
-   }
-   
+
+int getPriority(char operator) {
+    switch(operator) {
+        case '^': return 3;
+        case '*':
+        case '/': return 2;
+        case '+':
+        case '-': return 1;
+        default: return 0;
+    }
 }
+
+int main() {
+    char postfix[100];
+    int i;
+    
+    printf("Enter a Postfix Expression: ");
+    scanf("%s", postfix);
+    
+    printf("\nOperator priorities:\n");
+    for(i = 0; postfix[i] != '\0'; i++) {
+        if(postfix[i] == '+' || postfix[i] == '-' ||
+           postfix[i] == '*' || postfix[i] == '/' ||
+           postfix[i] == '^') {
+            printf("Operator %c has priority %d\n", postfix[i], getPriority(postfix[i]));
+        }
+    }
+    
+    return 0;
+}
+
    
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/2452b768-042d-4843-bc9f-5a05453ad0ff)
+![image](https://github.com/user-attachments/assets/a40afc24-40a1-4c19-8e89-b415f4a93c1e)
+
 
 ## Result:
 
 Thus, the program successfully finds and displays the priority of each operator in the given postfix expression.
 
-
-
-## Result:
-Thus the C program to find and display the priority of the operator in the given Postfix expression is implemented successfully
